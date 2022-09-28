@@ -17,11 +17,14 @@ use Illuminate\Support\Facades\Route;
 //    return view('welcome');
 //});
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
-Route::get('/', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard.home');
+//Route::get('/dashboard', function () {
+//    return view('dashboard');
+//})->middleware(['auth'])->name('dashboard');
+//Route::get('/', function () {
+//    return view('dashboard');
+//})->middleware(['auth'])->name('dashboard.home');
+
+Route::get('/', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard.home')->middleware('auth');
+Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard')->middleware('auth');
 
 require __DIR__.'/auth.php';
