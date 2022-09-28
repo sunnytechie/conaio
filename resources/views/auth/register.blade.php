@@ -9,7 +9,7 @@
                 <div class="app-brand justify-content-center">
                   <a href="{{ route('login') }}" class="app-brand-link gap-2">
                     <span class="app-brand-logo demo">
-                      
+                      <img width="40" height="40" src="{{ asset('assets/img/favicon/Untitled_design__20_-removebg-preview.png') }}" alt="Conaio">
                     </span>
                     <span class="app-brand-text demo text-body fw-bolder">Conaio</span>
                   </a>
