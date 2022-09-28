@@ -27,7 +27,7 @@
 
    
       <li class="menu-item">
-        <a href="#" class="menu-link">
+        <a href="{{ route('prayer.new') }}" class="menu-link">
           <i class="menu-icon tf-icons bx bx-bible"></i>
           <div data-i18n="Tables">Prayer Request</div>
         </a>
