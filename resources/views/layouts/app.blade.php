@@ -98,7 +98,8 @@
 
 
 
-
+        {{-- Google CDN --}}
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <!-- Core JS -->
         <!-- build:js assets/vendor/js/core.js -->
         <script src="{{ asset('assets/vendor/libs/jquery/jquery.js') }}"></script>
@@ -120,5 +121,42 @@
 
         <!-- Place this tag in your head or just before your close body tag. -->
         <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+        {{-- Diocese and Province auto fill --}}
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('#province_id').on('change', function () {
+                    var provinceId = this.value;
+                    
+                    $('#diocese').html('');
+                    $.ajax({
+                        url: '{{ route('getDiocese') }}?province_id='+provinceId,
+                        type: 'get',
+                        success: function (res) {
+                            $('#diocese').html('<option value="">Select diocese</option>');
+                            $.each(res, function (key, value) {
+                                $('#diocese').append('<option value="' + value
+                                    .id + '">' + value.name + '</option>');
+                            });
+                           
+                        }
+                    });
+        
+                });
+               
+            });
+        </script>
+        {{-- //End Diocese and Province auto fill --}}
+
+        <script>
+            setTimeout(() => {
+                const box = document.getElementById('bottomAlert');
+
+                // 👇️ removes element from DOM
+
+                // 👇️ hides element (still takes up space on page)
+                // box.style.visibility = 'hidden';
+                }, 1500);
+        </script>
     </body>
 </html>

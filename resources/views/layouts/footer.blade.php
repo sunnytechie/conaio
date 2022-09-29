@@ -30,3 +30,11 @@
     </div>
   </footer>
   <!-- / Footer -->
+
+  {{-- Session Message --}}
+  @if (session('message'))
+      <div style="position: fixed; right: 10px; bottom: 20px" class="alert alert-success alert-dismissible fade show bottom-alert" id="bottomAlert" role="alert" style="background: #fff; color: #000">
+        <strong>{{ session('message') }}</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"><i class="bi bi-x-lg"></i></button>
+      </div>
+  @endif

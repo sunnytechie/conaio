@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Diocese;
+use App\Models\Province;
+use App\Models\Membership;
 use Illuminate\Http\Request;
 
-class DashboardController extends Controller
+class MembershipController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,11 +16,7 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view('dashboard');
-    }
-
-    public function con() {
-        return view('Pages.conaio');
+        //
     }
 
     /**
@@ -27,7 +26,8 @@ class DashboardController extends Controller
      */
     public function create()
     {
-        //
+        $provinces = Province::orderBy('created_at', 'desc')->with('dioceses')->get();
+        return view('Member.new', compact('provinces'));
     }
 
     /**
@@ -38,7 +38,37 @@ class DashboardController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        //dd($request->all());
+
+        $province = Province::where('id', $request->province)->first();
+        $diocese = Diocese::where('id', $request->province)->first();
+        //dd($diocese->name);
+
+        $member = New Membership;
+        $member->fullname = $request->fullname;
+        $member->email = $request->email;
+        $member->email2 = $request->email2;
+        $member->phone = $request->phone;
+        $member->province = $province->name;
+        $member->diocease = $diocese->name;
+        $member->date_of_birth = $request->date_of_birth;
+        $member->local_church_address = $request->local_church_address;
+        $member->street = $request->street;
+        $member->city = $request->city;
+        $member->state = $request->state;
+        $member->save();
+
+        return back()->with('message', 'Registered Successfully');
+    }
+
+    public function getDiocese(Request $request) {
+
+        $dioceses = Diocese::where('province_id', $request->province_id)->get();
+
+        if (count($dioceses) > 0) {
+            return response()->json($dioceses);
+        }
     }
 
     /**

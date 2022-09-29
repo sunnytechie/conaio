@@ -15,27 +15,11 @@
                                 class="rounded"
                               />
                             </div>
-                            <div class="dropdown">
-                              <button
-                                class="btn p-0"
-                                type="button"
-                                id="cardOpt3"
-                                data-bs-toggle="dropdown"
-                                aria-haspopup="true"
-                                aria-expanded="false"
-                              >
-                                <i class="bx bx-dots-vertical-rounded"></i>
-                              </button>
-                              <div class="dropdown-menu dropdown-menu-end" aria-labelledby="cardOpt3">
-                                <a class="dropdown-item" href="javascript:void(0);">View More</a>
-                                {{-- <a class="dropdown-item" href="javascript:void(0);">Delete</a> --}}
-                              </div>
-                            </div>
+                            
                           </div>
                           <span class="fw-semibold d-block mb-1">Membership Registration</span>
-                          <h3 class="card-title mb-2">Registration portal</h3>
-                          <a href="#">
-                            <small class="text-success fw-semibold"><i class="bx bx-up-arrow-alt"></i> Register someone</small>
+                          <a href="{{ route('member.new') }}" class="btn btn-primary text-white">
+                            <small class="text-white fw-semibold"><i class="bx bx-up-arrow-alt"></i> Register someone</small>
                           </a>
                       </div>
                       </div>
@@ -53,22 +37,7 @@
                                 class="rounded"
                               />
                             </div>
-                            <div class="dropdown">
-                              <button
-                                class="btn p-0"
-                                type="button"
-                                id="cardOpt6"
-                                data-bs-toggle="dropdown"
-                                aria-haspopup="true"
-                                aria-expanded="false"
-                              >
-                                <i class="bx bx-dots-vertical-rounded"></i>
-                              </button>
-                              <div class="dropdown-menu dropdown-menu-end" aria-labelledby="cardOpt6">
-                                <a class="dropdown-item" href="javascript:void(0);">View More</a>
-                                {{-- <a class="dropdown-item" href="javascript:void(0);">Delete</a> --}}
-                              </div>
-                            </div>
+                            
                           </div>
                           <span>Donate to CoN</span>
                           <h3 class="card-title text-nowrap mb-1">Make your Donations Online</h3>
@@ -90,28 +59,12 @@
                                 class="rounded"
                               />
                             </div>
-                            <div class="dropdown">
-                              <button
-                                class="btn p-0"
-                                type="button"
-                                id="cardOpt6"
-                                data-bs-toggle="dropdown"
-                                aria-haspopup="true"
-                                aria-expanded="false"
-                              >
-                                <i class="bx bx-dots-vertical-rounded"></i>
-                              </button>
-                              <div class="dropdown-menu dropdown-menu-end" aria-labelledby="cardOpt6">
-                                <a class="dropdown-item" href="javascript:void(0);">View More</a>
-                                {{-- <a class="dropdown-item" href="javascript:void(0);">Delete</a> --}}
-                              </div>
-                            </div>
                           </div>
                           <span>CoN Store</span>
                           <h3 class="card-title text-nowrap mb-1">CYC, Books, Media and more</h3>
-                            <a href="#">
-                              <small class="text-success fw-semibold"><i class="bx bx-up-arrow-alt"></i> Purchase safely online</small>
-                            </a>
+
+                              <small class="text-success fw-semibold"><i class="bx bx-up-arrow-alt"></i> Use from the mobile app</small>
+                         
                         </div>
                       </div>
                     </div>
@@ -128,7 +81,7 @@
                           <p class="mb-4">
                             Church of Nigeria Messages
                           </p>
-                          <a href="javascript:;" class="btn btn-sm btn-outline-primary">View More</a>
+                          <a href="{{ route('con.message') }}" class="btn btn-sm btn-outline-primary">View More</a>
                         </div>
                       </div>
                     </div>
@@ -162,7 +115,7 @@
                           <p class="mb-4">
                             Get latest News and programs/Event as they happen
                           </p>
-                          <a href="javascript:;" class="btn btn-sm btn-outline-primary">Live events</a>
+                          <a href="https://acnntv.com/live-tv/" target="blank" class="btn btn-sm btn-outline-primary">Live events</a>
                         </div>
                       </div>
                     </div>

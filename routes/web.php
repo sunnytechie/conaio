@@ -33,4 +33,10 @@ Route::post('/testimony', [App\Http\Controllers\TestimonyController::class, 'sto
 Route::get('/prayer/new', [App\Http\Controllers\PrayerController::class, 'create'])->name('prayer.new')->middleware('auth');
 Route::post('/prayer', [App\Http\Controllers\PrayerController::class, 'store'])->name('prayer.store')->middleware('auth');
 
+Route::get('/con/message', [App\Http\Controllers\DashboardController::class, 'con'])->name('con.message')->middleware('auth');
+
+Route::get('/membership/new', [App\Http\Controllers\MembershipController::class, 'create'])->name('member.new')->middleware('auth');
+Route::post('/membership', [App\Http\Controllers\MembershipController::class, 'store'])->name('member.store')->middleware('auth');
+
+Route::get('get-diocese', [App\Http\Controllers\MembershipController::class, 'getDiocese'])->name('getDiocese');
 require __DIR__.'/auth.php';
