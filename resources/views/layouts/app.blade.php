@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 
 <!-- =========================================================
 * Sneat - Bootstrap 5 HTML Admin Template - Pro | v1.0.0
@@ -25,6 +24,16 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
+
+        <meta property="og:url" content="{{ url()->current() }}" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="{{ config('app.name') }}" />
+        <meta property="og:description" content="Anglican Church of Nigeria web version mobile application" />
+        <meta property="og:image" content="{{ asset('assets/img/favicon/Untitled_design__20_-removebg-preview.png') }}" />
+        <meta property="og:image:width" content="200" />
+        <meta property="og:image:height" content="200" />
+        <meta property="og:image:type" content="image/png" />
+        <meta property="og:image:alt" content="{{ config('app.name') }}" />
 
         <title>{{ config('app.name', 'Conaio') }}</title>
 
