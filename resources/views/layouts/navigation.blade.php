@@ -38,7 +38,7 @@
                 </li> --}}
 
                 <li class="nav-item lh-1 me-3">
-                  <span>Hi, {{ Auth::user()->name }} 🎉</span>
+                  <span>{{ Auth::user()->name }}</span>
                 </li>
 
                 <!-- User -->
