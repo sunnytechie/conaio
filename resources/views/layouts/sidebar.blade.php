@@ -48,10 +48,15 @@
       </li>
 
       <li class="menu-item">
-        <a href="#" class="menu-link">
-          <i class="menu-icon tf-icons bx bx-bell-plus"></i>
-          <div data-i18n="Tables">Bible through a year</div>
+        <form method="POST" action="{{ route('logout') }}">
+          @csrf
+        <a href="{{ route('logout') }}" class="menu-link"
+        onclick="event.preventDefault();
+                                this.closest('form').submit();">
+          <i class="menu-icon tf-icons bx bx-power-off"></i>
+          <div data-i18n="Tables">Logout</div>
         </a>
+        </form>
       </li>
     </ul>
   </aside>

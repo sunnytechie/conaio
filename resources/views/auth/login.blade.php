@@ -16,8 +16,8 @@
                 </a>
               </div>
               <!-- /Logo -->
-              <h4 class="mb-2">Welcome to the web version of Conaio! 👋</h4>
-              <p class="mb-4">Please sign-in to your account</p>
+              
+              <p class="mb-4 text-center">Hi there👋 sign-in to your account</p>
 
                <!-- Session Status -->
               <x-auth-session-status class="mb-4" :status="session('status')" />
@@ -78,9 +78,9 @@
                 </div>
 
                 <div class="mb-3">
-                  <button class="btn btn-default d-grid shadow-md w-100" type="button" style="background: #ffffff">
-                       Sign in with Google
-                  </button>
+                  <a href="{{ route('redirectToGoogle') }}" class="btn btn-default p-2 shadow w-100" type="button" style="background: #ffffff">
+                       <span><i class='bx bxl-google'></i></span> <span>Sign in with Google</span>
+                  </a>
                 </div>
               </form>
 

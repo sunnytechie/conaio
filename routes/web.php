@@ -38,5 +38,10 @@ Route::get('/con/message', [App\Http\Controllers\DashboardController::class, 'co
 Route::get('/membership/new', [App\Http\Controllers\MembershipController::class, 'create'])->name('member.new')->middleware('auth');
 Route::post('/membership', [App\Http\Controllers\MembershipController::class, 'store'])->name('member.store')->middleware('auth');
 
+Route::get('/bible-through-the-year', [App\Http\Controllers\BibleController::class, 'index'])->name('bible.index')->middleware('auth');
+
 Route::get('get-diocese', [App\Http\Controllers\MembershipController::class, 'getDiocese'])->name('getDiocese');
+
+Route::get('authorized/google', [App\Http\Controllers\Api\LoginWithGoogleController::class, 'redirectToGoogle'])->name('redirectToGoogle');
+Route::get('authorized/google/callback', [App\Http\Controllers\Api\LoginWithGoogleController::class, 'handleGoogleCallback'])->name('handleGoogleCallback');
 require __DIR__.'/auth.php';

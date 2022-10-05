@@ -15,7 +15,7 @@
                   </a>
                 </div>
                 <!-- /Logo -->
-                <p class="mb-4">Sign-up and start using Conaio!</p>
+                <p class="mb-4 text-center">Sign-up to start using Conaio!</p>
 
                 <!-- Validation Errors -->
                 <x-auth-validation-errors class="mb-4" :errors="$errors" />
