@@ -74,7 +74,8 @@
                                           <div class="mb-3">
                                             <label for="defaultSelect" class="form-label">Province</label>
                                             <select id="province_id" name="province" class="form-select" style="border-radius: 0; border: 0.1rem solid rgb(105, 104, 104)">
-                                                @foreach ($provinces as $province)
+                                              <option disabled selected>Select Option</option>
+                                              @foreach ($provinces as $province)
                                                 <option value="{{ $province->id }}">{{ $province->name }} {{ $province->state_name }}</option>
                                                 @endforeach
                                             </select>

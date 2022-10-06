@@ -41,7 +41,7 @@
                           </div>
                           <span>Donate to CoN</span>
                           <h5 class="card-title text-nowrap mb-1">Make your Donations Online</h5>
-                          <a href="#">
+                          <a href="{{ route('donation') }}">
                             <small class="text-success fw-semibold"><i class="bx bx-up-arrow-alt"></i> Safe and secure</small>
                           </a>
                         </div>

@@ -66,6 +66,8 @@
         <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
         <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
         <script src="{{ asset('assets/js/config.js') }}"></script>
+        {{-- Flutterwave --}}
+        <script src="https://checkout.flutterwave.com/v3.js"></script>
         <!-- Scripts -->
         {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
     </head>
@@ -161,5 +163,76 @@
                 // box.style.visibility = 'hidden';
                 }, 1500);
         </script>
+
+        <script>
+            $(document).ready(function(){
+                $("#showModalOnPageLoad").modal('show');
+            });
+        </script>
+
+              {{-- Script for flutter wave --}}
+      <script>
+
+        $(function () {
+            $("#makePaymentForm").submit(function (e) {
+                e.preventDefault();
+                var name = $("#name").val();
+                var email = $("#email").val();
+                var phone_number = $("#phone_number").val();
+                var type = $("#type").val();
+                var currency = $("#currency").val();
+                var amount = $("#amount").val();
+                var province_id = $("#province_id").val();
+                var diocese = $("#diocese").val();
+
+                makePayment(name,email,phone_number,amount,currency);
+            });
+        });
+
+        function makePayment(name,email,phone_number,amount,currency) {
+          FlutterwaveCheckout({
+            public_key: "FLWPUBK-6b712ffa17bb76fb9fef1c981c149b4e-X",
+            tx_ref: "RX1_{{ Str::substr(rand(0,time()),0,10) }}",
+            amount,
+            currency,
+            payment_options: "card, banktransfer, ussd",
+            redirect_url: "{{ route('dashboard') }}",
+            //Looks like it uses this with requests on it even after it cancels a transaction.
+            meta: {
+              consumer_id: 23,
+              consumer_mac: "92a3-912ba-1192a",
+            },
+            customer: {
+              email,
+              phone_number,
+              name,
+            },
+
+            //callback: function(data) {
+            // Send AJAX verification request to backend
+            //verifyTransactionOnBackend(payment.id);
+            //var tx_ref = data.tx_ref;
+            //console.log(tx_ref);
+            //var _token = $("input[name='_token']").val();
+            //$.ajax({
+            //    type = "POST",
+            //    url: "{{ URL::to('verify-payment') }}",
+            //    data: {
+            //        tx_id,
+            //        _token
+            //    },
+                //success: function (response) {
+                //console.log(response);
+                //}
+            //});
+            //},
+            customizations: {
+              title: "Conaio Donation",
+              description: "Donation into the Angican Church of Nigeria.",
+              logo: "https://api.conaio.com/assets/img/Untitled_design__20_-removebg-preview.png",
+            },
+          });
+        }
+      </script>
     </body>
 </html>

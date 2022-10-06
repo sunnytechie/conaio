@@ -42,6 +42,9 @@ Route::get('/bible-through-the-year', [App\Http\Controllers\BibleController::cla
 
 Route::get('get-diocese', [App\Http\Controllers\MembershipController::class, 'getDiocese'])->name('getDiocese');
 
+Route::get('donation', [App\Http\Controllers\DonationController::class, 'index'])->name('donation')->middleware('auth');
+Route::any('verify-payment', [App\Http\Controllers\DonationController::class, 'verify'])->name('verify')->middleware('auth');
+
 Route::get('authorized/google', [App\Http\Controllers\Api\LoginWithGoogleController::class, 'redirectToGoogle'])->name('redirectToGoogle');
 Route::get('authorized/google/callback', [App\Http\Controllers\Api\LoginWithGoogleController::class, 'handleGoogleCallback'])->name('handleGoogleCallback');
 require __DIR__.'/auth.php';

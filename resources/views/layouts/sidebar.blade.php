@@ -41,7 +41,7 @@
       </li>
 
       <li class="menu-item">
-        <a href="#" class="menu-link">
+        <a href="{{ route('donation') }}" class="menu-link">
           <i class="menu-icon tf-icons bx bx-donate-heart"></i>
           <div data-i18n="Tables">Donate</div>
         </a>
