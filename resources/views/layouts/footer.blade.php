@@ -7,7 +7,7 @@
           document.write(new Date().getFullYear());
         </script>
         CONAIO, made with ❤️ by
-        <a href="#" target="_blank" class="footer-link fw-bolder">Lemon Gate</a> All rights Reserved
+        <a href="#" target="_blank" class="footer-link fw-bolder">CoN</a> All rights Reserved
       </div>
       {{-- <div>
         <a href="https://themeselection.com/license/" class="footer-link me-4" target="_blank">License</a>
