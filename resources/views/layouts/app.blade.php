@@ -192,11 +192,12 @@
         function makePayment(name,email,phone_number,amount,currency) {
           FlutterwaveCheckout({
             public_key: "FLWPUBK-6b712ffa17bb76fb9fef1c981c149b4e-X",
+            //public_key: "FLWPUBK_TEST-61f4e2391ee8c2815a517cc6d8cbb25a-X",
             tx_ref: "RX1_{{ Str::substr(rand(0,time()),0,10) }}",
             amount,
             currency,
             payment_options: "card, banktransfer, ussd",
-            redirect_url: "{{ route('dashboard') }}",
+            redirect_url: "{{ route('donation.success') }}",
             //Looks like it uses this with requests on it even after it cancels a transaction.
             meta: {
               consumer_id: 23,

@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Donation;
 use App\Models\Province;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class DonationController extends Controller
 {
@@ -16,6 +18,20 @@ class DonationController extends Controller
     {
         $provinces = Province::orderBy('name', 'desc')->get();
         return view('Donation.new', compact('provinces'));
+    }
+
+    public function success(Request $request) {
+        $donation = New Donation;
+        $donation->name = Auth::user()->name;
+        $donation->email = Auth::user()->email;
+        $donation->method = "Conaio Web App";
+        $donation->reference = $request->tx_ref;
+        $donation->status = $request->status;
+        $donation->tx_ref = $request->tx_ref;
+        $donation->transaction_id = $request->transaction_id;
+        $donation->save();
+
+        return view('Donation.success')->with('message', 'Your successfully made donation to the CoN, Thank you');
     }
 
     public function verify($trans_id) {

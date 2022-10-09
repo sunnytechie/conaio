@@ -44,6 +44,7 @@ Route::get('get-diocese', [App\Http\Controllers\MembershipController::class, 'ge
 
 Route::get('donation', [App\Http\Controllers\DonationController::class, 'index'])->name('donation')->middleware('auth');
 Route::any('verify-payment', [App\Http\Controllers\DonationController::class, 'verify'])->name('verify')->middleware('auth');
+Route::get('/donation/success', [App\Http\Controllers\DonationController::class, 'success'])->name('donation.success')->middleware('auth');
 
 Route::get('authorized/google', [App\Http\Controllers\Api\LoginWithGoogleController::class, 'redirectToGoogle'])->name('redirectToGoogle');
 Route::get('authorized/google/callback', [App\Http\Controllers\Api\LoginWithGoogleController::class, 'handleGoogleCallback'])->name('handleGoogleCallback');
