@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Models\User;
 use Illuminate\Support\Str;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Auth\Events\PasswordReset;
@@ -18,6 +19,17 @@ class ForgotPasswordController extends Controller
         $request->validate([
             'email' => 'required|email',
         ]);
+
+        //find user by email
+        $user = User::where('email', $request->email)->first();
+
+        //count user
+        if (!$user) {
+            return response()->json([
+                'status' => false,
+                'message' => 'We can\'t find a user with that e-mail address.'
+            ]);
+        }
 
         $status = Password::sendResetLink(
             $request->only('email')
