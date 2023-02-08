@@ -26,7 +26,7 @@ class ForgotPasswordController extends Controller
         //count user
         if (!$user) {
             return response()->json([
-                'status' => false,
+                'status' => 0,
                 'message' => 'We can\'t find a user with that e-mail address.'
             ]);
         }
@@ -37,7 +37,8 @@ class ForgotPasswordController extends Controller
 
         if ($status == Password::RESET_LINK_SENT) {
             return [
-                'status' => __($status)
+                'status' => 1,
+                'message' => 'We have emailed your password reset link!.'
             ];
         }
 
