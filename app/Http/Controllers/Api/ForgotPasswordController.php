@@ -17,7 +17,7 @@ class ForgotPasswordController extends Controller
     public function forgotPassword(Request $request)
     {
         $request->validate([
-            'email' => 'required|email',
+            'email' => 'required|email|min:6',
         ]);
 
         //find user by email
